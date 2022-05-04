@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@headlessui/react": "^1.6.1",
     "@supabase/supabase-js": "^1.32.2",
     "next": "^12.1.1",
     "react": "^17.0.2",
