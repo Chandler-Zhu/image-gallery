@@ -55,11 +55,15 @@ export default function Gallery({ images }: { images: Image[] }) {
   return (
     <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:max-w-7xl lg:px-8">
       <div className="mb-6 pl-2 border-b-8 border-green-800 flex items-center lg:items-stretch flex-row">
-        <h1 className="transition transform origin-left -skew-x-6 inline-block p-2 uppercase text-5xl bg-gradient-to-tr from-green-800 to-green-500 text-transparent bg-clip-text font-extrabold">
+        <h1 className="select-none transition transform origin-left -skew-x-6 inline-block p-2 uppercase text-5xl bg-gradient-to-tr from-green-800 to-green-500 text-transparent bg-clip-text font-extrabold">
           Chandler
         </h1>
         <div className="justify-end flex flex-1 pt-4 pr-8 pb-4">
-          <button type="button" onClick={openModal}>
+          <button
+            className="rounded-md outline-none ring-green-600 focus-visible: ring-offset-2 focus-visible:ring-4"
+            type="button"
+            onClick={openModal}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-8 w-8"
@@ -181,7 +185,10 @@ function BlurImage({ image }: { image: Image }) {
   const [isLoading, setLoading] = useState(true);
 
   return (
-    <a href={image.imageSrc} className="group">
+    <a
+      href={image.imageSrc}
+      className="group rounded-md outline-none ring-green-600 focus-visible: ring-offset-4 focus-visible:ring-4"
+    >
       <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
         <Image
           alt=""
