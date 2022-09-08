@@ -5,24 +5,24 @@ import { createClient } from '@supabase/supabase-js';
 import { Dialog, Transition } from '@headlessui/react';
 import LightGallery from 'lightgallery/react';
 import dynamic from 'next/dynamic';
-const SlButton = dynamic(
-  () =>
-    import('../node_modules/@shoelace-style/shoelace/dist/react').then(
-      (mod) => mod.SlButton
-    ),
-  {
-    ssr: false,
-  }
-);
-const SlIcon = dynamic(
-  () =>
-    import('../node_modules/@shoelace-style/shoelace/dist/react').then(
-      (mod) => mod.SlIcon
-    ),
-  {
-    ssr: false,
-  }
-);
+// const SlButton = dynamic(
+//   () =>
+//     import('../node_modules/@shoelace-style/shoelace/dist/react').then(
+//       (mod) => mod.SlButton
+//     ),
+//   {
+//     ssr: false,
+//   }
+// );
+// const SlIcon = dynamic(
+//   () =>
+//     import('../node_modules/@shoelace-style/shoelace/dist/react').then(
+//       (mod) => mod.SlIcon
+//     ),
+//   {
+//     ssr: false,
+//   }
+// );
 import 'lightgallery/css/lightgallery.css';
 export async function getStaticProps() {
   const supabaseAdmin = createClient(
@@ -83,10 +83,41 @@ export default function Gallery({ images }: { images: Image[] }) {
             Chandler
           </h1>
           <div className="justify-end flex flex-1 pt-4 pr-8 pb-4">
-            <SlButton variant="default" onClick={openModal}>
+            <button
+              onClick={openModal}
+              className="text-base   hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
+        hover:bg-emerald-700 hover:text-emerald-100 
+        bg-emerald-50 
+        text-emerald-700 
+        border duration-200 ease-in-out 
+        border-emerald-600 transition"
+            >
+              <div className="flex leading-5">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="100%"
+                  height="100%"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  className=" w-5 h-5 mr-3"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z"
+                  />
+                </svg>
+                Share
+              </div>
+            </button>
+            {/* <SlButton variant="default" onClick={openModal}>
               <SlIcon slot="prefix" name="share"></SlIcon>
               Share
-            </SlButton>
+            </SlButton> */}
             {/* <button
               className="rounded-md outline-none ring-green-600 focus-visible: ring-offset-2 focus-visible:ring-4"
               type="button"
